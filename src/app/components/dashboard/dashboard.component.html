@@ -1,0 +1,108 @@
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <cds-icon class="alert-icon" shape="exclamation-circle"></cds-icon>
+      </div>
+      <span class="alert-text">{{ errorMessage }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="clr-row">
+  <div class="card">
+    <div class="card-block">
+      <h1>User Details</h1>
+      <button class="btn btn-primary new-user-action" (click)="modalVal(true)">
+        Add New User
+      </button>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>UserName</th>
+            <th>Project</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let value of data">
+            <td>{{ value.id }}</td>
+            <td>{{ value.userName }}</td>
+            <td>{{ value.project }}</td>
+            <td>{{ value.status }}</td>
+            <td>
+              <clr-icon
+                shape="pencil"
+                (click)="redirectTo(value.id)"
+              ></clr-icon>
+              <clr-icon shape="trash" (click)="deleteUser(value.id)"></clr-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="showModal">
+  <div class="modal">
+    <div class="modal-dialog" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button aria-label="Close" class="close" type="button">
+            <cds-icon shape="close"></cds-icon>
+          </button>
+          <h3 class="modal-title">Add User:</h3>
+        </div>
+        <div class="modal-body">
+          <form clrForm [formGroup]="userForm">
+            <clr-input-container>
+              <label>Name *</label>
+              <input clrInput type="text" formControlName="name" />
+            </clr-input-container>
+            <clr-input-container>
+              <label>Project *</label>
+              <input clrInput type="text" formControlName="project" />
+            </clr-input-container>
+            <clr-control-container>
+              <label>Status</label>
+              <select formControlName="status">
+                <option value="active">Active</option>
+                <option value="deactivate">Deactivate</option>
+              </select>
+            </clr-control-container>
+          </form>
+          <div class="alert alert-danger" role="alert" *ngIf="formErrorMessage">
+            <div class="alert-items">
+              <div class="alert-item static">
+                <div class="alert-icon-wrapper">
+                  <cds-icon class="alert-icon" shape="exclamation-circle"></cds-icon>
+                </div>
+                <span class="alert-text">Kindly enter the mandatory fields.</span>
+              </div>
+            </div>
+          </div>  
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-outline"
+            type="button"
+            (click)="submitUser(userForm)"
+          >
+            Submit
+          </button>
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="modalVal(false)"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop" aria-hidden="true"></div>
+</ng-container>

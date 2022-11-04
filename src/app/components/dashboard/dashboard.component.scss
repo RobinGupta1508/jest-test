@@ -1,0 +1,20 @@
+.card {
+    margin: 0;
+    border-top: 0;
+    .card-block {
+        h1 {
+            float: left;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .new-user-action {
+            float: right;
+        }
+        tr td {
+            text-transform: capitalize;
+        }
+    }
+}
+select {
+    width: 160px;
+}

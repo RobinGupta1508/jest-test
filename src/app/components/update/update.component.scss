@@ -1,0 +1,26 @@
+.card {
+    margin: 0;
+    border-top: 0;
+    .back-arrow{
+        transform: rotate(270deg);
+        margin-right: 10px;
+    }
+    select {
+        width: 160px;
+    }
+    .submit-action {
+        margin-top: 20px;
+    }
+    .complete-task-link {
+        border-top: 1px solid #eeeeee;
+        margin: 0;
+        .mark-complete {
+          padding: 0;
+          margin: 12px 0 0 25px;
+          .btn {
+            float: left;
+            margin: 0;
+          }
+        }
+    }
+}

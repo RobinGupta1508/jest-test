@@ -1,0 +1,39 @@
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <cds-icon class="alert-icon" shape="exclamation-circle"></cds-icon>
+      </div>
+      <span class="alert-text">{{ errorMessage }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-block">
+    <button class="btn btn-primary" type="submit" (click)="redirectTo()">
+      <clr-icon shape="arrow" class="back-arrow"></clr-icon>Back to Dashboard</button>
+    <h1>Update Form</h1>
+    <form clrForm [formGroup]="updateForm" (ngSubmit)="submit(updateForm)">
+      <clr-input-container>
+        <label>Name</label>
+        <input clrInput type="text" formControlName="name" />
+      </clr-input-container>
+      <clr-input-container>
+        <label>Project</label>
+        <input clrInput type="text" formControlName="project" />
+      </clr-input-container>
+      <clr-control-container>
+        <label>Status</label>
+        <select formControlName="status">
+          <option value="active">Active</option>
+          <option value="deactivate">Deactivate</option>
+        </select>
+      </clr-control-container>
+      <div class="submit-action">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn" type="button" (click)="resetForm()">Reset</button>
+      </div>
+    </form>    
+  </div>
+</div>

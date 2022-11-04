@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "Kaylee Thomas",
+      "project": "VMware",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "userName": "Dale Duncan",
+      "project": "VMware",
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "userName": "Brittany Meyer",
+      "project": "VMware",
+      "status": "deactive"
+    },
+    {
+      "id": 4,
+      "userName": "Frederick Harris",
+      "project": "VMware",
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "userName": "Antonio Thompson",
+      "project": "VMware",
+      "status": "deactive"
+    },
+    {
+      "userName": "Vibha",
+      "project": "typicode",
+      "status": "active",
+      "id": 6
+    }
+  ]
+}
